@@ -1,0 +1,83 @@
+<!-- Frame de pantalla de reporte -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/lista_de_em"
+  android:layout_width="361dp"
+  android:layout_height="669dp"
+  android:background="#F2F2F2"/>
+
+    <!-- Titulo de la pagina -->
+    <TextView
+    android:id="@+id/page_title"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="-87dp"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentBottom="true"
+    android:text="@string/page_title"
+    android:textAppearance="@style/page_title"
+    android:gravity="center_horizontal|center_vertical"/>
+
+        <!-- Listado de colaboradores del reporte -->
+        <RelativeLayout
+        android:id="@+id/frame_35320"
+        android:layout_width="337dp"
+        android:layout_height="74dp"
+        android:background="@drawable/frame_35320"
+        android:elevation="2dp"
+        />
+        <TextView
+        android:id="@+id/value_copy"
+        android:layout_width="49dp"
+        android:layout_height="42dp"
+        android:text="@string/value_copy"
+        android:textAppearance="@style/value_copy"
+        android:gravity="center_horizontal|top"
+        />
+        <vector
+        android:width="337dp"
+        android:height="74dp"
+        android:viewportWidth="337"
+        android:viewportHeight="74"
+        >
+        <group>
+        <clip-path
+        android:pathData="M8 0H329C333.418 0 337 3.58172 337 8V66C337 70.4183 333.418 74 329 74H8C3.58172 74 0 70.4183 0 66V8C0 3.58172 3.58172 0 8 0Z"
+        />
+        <path
+        android:pathData="M0 0V74H337V0"
+        android:fillColor="#FFFFFF"
+        />
+        </group>
+        </vector>
+
+     <!-- Boton finalizar reporte -->
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/buttonscann"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:text="@string/finalizar_e"
+    android:textAppearance="@style/finalizar_e"
+    android:layout_alignParentBottom="true"
+    />
+<!--
+  Font family: Circular Std
+  Line height: 20sp
+  (identical to box height)
+  -->
+  
+<!-- styles.xml -->
+<style name="page_title">
+<item name="android:textSize">16sp</item>
+</style>
+  
+<!-- strings.xml -->
+<string name="page_title">
+  Reporte de empleados
+</string>
