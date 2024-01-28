@@ -1,0 +1,62 @@
+<!-- Auto layout inicio de App -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/splash"
+  android:layout_width="361dp"
+  android:layout_height="631dp"
+  android:clipToOutline="true"
+  android:background="#FFFFFF"
+ />
+    
+    <RelativeLayout
+    android:id="@+id/mexico"
+    android:layout_width="279dp"
+    android:layout_height="252dp"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"/>
+
+    <TextView   
+    android:id="@+id/asistenciap"
+    android:layout_width="202dp"
+    android:layout_height="35dp"
+    android:text="@string/asistenciap"
+    android:textAppearance="@style/asistenciap"
+    android:lineSpacingExtra="-5sp"
+    android:gravity="center_horizontal|top"
+    />
+
+    <TextView
+    android:id="@+id/campus_digi"
+    android:layout_width="212dp"
+    android:layout_height="38dp"
+    android:text="@string/campus_digi"
+    android:textAppearance="@style/campus_digi"
+    android:gravity="center_horizontal|top"/>
+
+    <!--
+    Font family: Circular Std
+    Line height: 38sp
+    (identical to box height)
+    -->
+    
+    <!-- styles.xml -->
+    <style name="campus_digi">
+    <item name="android:textSize">30sp</item>
+    <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+    <!-- strings.xml -->
+    <string name="campus_digi">
+    Campus Digital
+    </string>
+    
+    <!-- styles.xml -->
+    <style name="asistenciap">
+     <item name="android:textSize">32sp</item>
+    <item name="android:textColor">#FFFFFF</item>
+     </style>
+    
+    <!-- strings.xml -->
+    <string name="asistenciap">
+    AsistenciApp
+    </string>
