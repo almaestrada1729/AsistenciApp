@@ -1,0 +1,229 @@
+<!-- Auto layout, variables, and unit scale are not yet supported -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/pantalla_pr"
+  android:layout_width="361dp"
+  android:layout_height="631dp"
+  android:clipToOutline="true"
+  android:background="#EEEEEE"
+ />
+
+ <!-- Nombre de la app -->
+<TextView
+  android:id="@+id/asistenciap"
+  android:layout_width="360dp"
+  android:layout_height="40dp"
+  android:layout_alignParentLeft="true"
+  android:layout_marginLeft="-8dp"
+  android:layout_alignParentTop="true"
+  android:layout_marginTop="8dp"
+  android:text="@string/asistenciap"
+  android:textAppearance="@style/asistenciap"
+  android:gravity="center_horizontal|top"
+ />
+
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_35319"
+    android:layout_width="344dp"
+    android:layout_height="89dp"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="9dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="157dp"
+    android:background="@drawable/frame_35319"
+    android:elevation="2dp"
+    />
+
+        <TextView
+        android:id="@+id/value_copy"
+        android:layout_width="138dp"
+        android:layout_height="19dp"
+        android:text="@string/value_copy"
+        android:textAppearance="@style/value_copy"
+        android:gravity="right|top"
+        />
+
+<!-- Botones de estatus -->
+<RelativeLayout
+android:id="@+id/atom_button"
+android:layout_width="148dp"
+android:layout_height="104dp"
+android:layout_alignParentLeft="true"
+android:layout_marginLeft="17dp"
+android:layout_alignParentTop="true"
+android:layout_marginTop="291dp"
+android:background="@drawable/atom_button"
+/>
+<RelativeLayout
+android:id="@+id/atom_button"
+android:layout_width="0dp"
+android:layout_height="104dp"
+android:layout_alignParentLeft="true"
+android:layout_marginLeft="190dp"
+android:layout_alignParentRight="true"
+android:layout_marginRight="23dp"
+android:layout_alignParentTop="true"
+android:layout_marginTop="291dp"
+android:background="@drawable/atom_button"
+/>
+
+<!-- Boton de registro de punto de encuentro-Usuarios sin privilegios -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/buttonscann"
+  android:layout_width="0dp"
+  android:layout_height="0dp"
+  android:layout_alignParentLeft="true"
+  android:layout_alignParentRight="true"
+  android:layout_alignParentTop="true"
+  android:layout_alignParentBottom="true"
+ />
+
+
+<!-- Menu para usuarios con privilegios -->
+ <RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/component_4"
+android:layout_width="360dp"
+android:layout_height="80dp"
+android:layout_alignParentRight="true"
+android:layout_marginRight="1dp"
+android:layout_alignParentBottom="true"
+android:clipToOutline="true"
+android:background="#FFFFFF"
+android:elevation="20dp"
+/>
+
+
+ <!-- Menu de cierre de sesión -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/menu_fill0_"
+  android:layout_width="32dp"
+  android:layout_height="32dp"
+  android:layout_centerHorizontal="true"
+  android:layout_alignParentTop="true"
+  android:layout_marginTop="12dp"
+  android:clipToOutline="true"
+ />
+
+<RelativeLayout
+  android:id="@+id/molecule_ov"
+  android:layout_width="286dp"
+  android:layout_height="397dp"
+  android:layout_centerHorizontal="true"
+  android:layout_centerVertical="true"
+  android:background="@drawable/molecule_ov"
+  android:elevation="4dp"
+ />
+  
+<vector
+  android:width="286dp"
+  android:height="397dp"
+  android:viewportWidth="286"
+  android:viewportHeight="397"
+ >
+        <!-- Modal terminos y condiciones -->
+        <TextView
+        android:id="@+id/terminos_y_"
+        android:layout_width="204dp"
+        android:layout_height="41dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
+        android:text="@string/terminos_y_"
+        android:textAppearance="@style/terminos_y_"
+        android:gravity="center_vertical"
+        />
+
+            <TextView
+            android:id="@+id/x"
+            android:layout_width="43dp"
+            android:layout_height="41dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="321dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="49dp"
+            android:text="@string/x"
+            android:textAppearance="@style/x"
+            android:gravity="center_vertical"
+            />
+
+     <!-- Modal del cierre de sesión -->
+        <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/molecule_ov"
+        android:layout_width="266dp"
+        android:layout_height="193dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/molecule_ov"
+        android:elevation="4dp"
+        />
+
+            <TextView
+            android:id="@+id/deseas_sali"
+            android:layout_width="260dp"
+            android:layout_height="21dp"
+            android:text="@string/deseas_sali"
+            android:textAppearance="@style/deseas_sali"
+            android:lineSpacingExtra="1sp"
+            android:gravity="center_horizontal|center_vertical"/>
+
+              <!-- Botones del cierre de sesión -->
+                <TextView
+                android:id="@+id/aceptar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/aceptar"
+                android:textAppearance="@style/aceptar"
+                android:gravity="center_horizontal|center_vertical"
+                />
+
+                <TextView
+                android:id="@+id/cancelar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/cancelar"
+                android:textAppearance="@style/cancelar"
+                android:gravity="center_horizontal|center_vertical"
+                />
+
+
+    
+<group>
+<clip-path
+  android:pathData="M8 0H278C282.418 0 286 3.58172 286 8V389C286 393.418 282.418 397 278 397H8C3.58172 397 0 393.418 0 389V8C0 3.58172 3.58172 0 8 0Z"
+/>
+<path
+  android:pathData="M0 0V397H286V0"
+  android:fillColor="#FFFFFF"
+/>
+</group>
+</vector>
+
+<!--
+  Font family: Circular Std
+  Line height: 40sp
+  -->
+  
+<!-- styles.xml -->
+<style name="asistenciap">
+<item name="android:textSize">32sp</item>
+<item name="android:textColor">#FFFFFF</item>
+</style>
+  
+<!-- strings.xml -->
+<string name="asistenciap">
+  AsistenciApp 
+</string>
