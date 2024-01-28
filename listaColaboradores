@@ -1,0 +1,161 @@
+<!--Frame lista de empleados -->
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/lista_de_co"
+  android:layout_width="360dp"
+  android:layout_height="640dp"
+  android:clipToOutline="true"
+  android:background="#EEEEEE"
+ />
+
+        <!-- Titulo de pagina -->
+        <TextView
+        android:id="@+id/page_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/page_title"
+        android:textAppearance="@style/page_title"
+        android:gravity="top"
+        />
+
+        <!--Total activos e inactivos-->
+        <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/molecule_in"
+        android:layout_width="346dp"
+        android:layout_height="119dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="89dp"
+        android:background="@drawable/molecule_in"
+        android:elevation="4dp"
+        />
+
+            <TextView
+            android:id="@+id/total_activ"
+            android:layout_width="117dp"
+            android:layout_height="50dp"
+            android:text="@string/total_activ"
+            android:textAppearance="@style/total_activ"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+            <TextView
+            android:id="@+id/total_inact"
+            android:layout_width="117dp"
+            android:layout_height="50dp"
+            android:text="@string/total_inact"
+            android:textAppearance="@style/total_inact"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+        <!-- Barra activos e inactivos -->
+        <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/molecule_se"
+        android:layout_width="344dp"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="7dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="225dp"
+        />
+
+            <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/frame_35437"
+            android:layout_width="172dp"
+            android:layout_height="36dp"
+            android:background="@drawable/frame_35437"
+            android:text="@string/activos"
+            android:textAppearance="@style/activos"
+            />
+
+            <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/frame_35438"
+            android:layout_width="172dp"
+            android:layout_height="36dp"
+            android:background="@drawable/frame_35438"
+            android:text="@string/inactivos"
+            android:textAppearance="@style/inactivos"
+            />
+        <!-- Card info de empleados -->
+        <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/molecule_de"
+        android:layout_width="347dp"
+        android:layout_height="129dp"
+        android:background="@drawable/molecule_de"
+        android:elevation="4dp"
+        />
+
+          <TextView
+          android:id="@+id/value_copy"
+          android:layout_width="148dp"
+          android:layout_height="20dp"
+          android:text="@string/value_copy"
+          android:textAppearance="@style/value_copy"
+          android:gravity="top"/>
+
+          <!-- Cambio de estatus -->
+          <TextView
+          android:id="@+id/contenido_3"
+          android:layout_width="148dp"
+          android:layout_height="24dp"
+          android:text="@string/contenido_3"
+          android:textAppearance="@style/contenido_3"
+          android:lineSpacingExtra="5sp"
+          android:translationY="-2.62sp"
+          android:gravity="top"/>
+
+          <TextView
+          android:id="@+id/contenido_3"
+          android:layout_width="148dp"
+          android:layout_height="24dp"
+          android:text="@string/contenido_3"
+          android:textAppearance="@style/contenido_3"
+          android:lineSpacingExtra="5sp"
+          android:translationY="-2.62sp"
+          android:gravity="right|top"
+          />
+
+        <!-- drawable/frame_35437.xml -->
+        <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="172dp"
+        android:height="36dp"
+        android:viewportWidth="172"
+        android:viewportHeight="36"
+        >
+
+        <group>
+        <clip-path
+        android:pathData="M0 0H172V36H0V0Z"/>
+        <path
+        android:pathData="M0 0V36H172V0"
+        android:fillColor="#26ACBF"/>
+        </group>
+        </vector>
+
+<!--
+  Font family: Circular Std
+  Line height: 20sp
+  (identical to box height)
+  -->
+  
+<!-- styles.xml -->
+<style name="page_title">
+<item name="android:textSize">16sp</item>
+</style>
+  
+<!-- strings.xml -->
+<string name="page_title">
+  Lista de empleados
+</string>
