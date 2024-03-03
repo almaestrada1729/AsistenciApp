@@ -7,12 +7,14 @@ import android.icu.util.Calendar
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.almadevs.androidcurso.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
 
 class HomePrivilegeActivity : AppCompatActivity() {
@@ -20,6 +22,8 @@ class HomePrivilegeActivity : AppCompatActivity() {
     private var isPausaSelected:Boolean = false
     private lateinit var viewStart: CardView
     private lateinit var viewPausa: CardView
+    private lateinit var btnReport: MenuItem
+    private lateinit var btnListEmp: MenuItem
 
     @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.N)
@@ -32,19 +36,42 @@ class HomePrivilegeActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale.getDefault())
         val fechaActual = dateFormat.format(calendar.time)
-        //val btnListEmp = findViewById<Button>(R.id.btnListEmp)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.collectionMenuBottomNavigation)
+
+        // Obtener una referencia al menú inflado
+        val menuInflater = menuInflater
+        val menu = bottomNavigationView.menu
+
+        // Obtener las referencias a los elementos del menú
+        btnReport = menu.findItem(R.id.btnReport)
+        btnListEmp = menu.findItem(R.id.btnListEmp)
+
         // Establecer la fecha actual en el TextView
         textDate.text = fechaActual
         initComponents()
         initListeners()
         initUI()
-        //btnListEmp.setOnClickListener { navigateToListEmp() }
+
+        btnReport.setOnMenuItemClickListener {
+            navigateToReport()
+            true
+        }
+
+        btnListEmp.setOnMenuItemClickListener {
+            navigateToListEmpl()
+            true
+        }
     }
 
-    /*private fun navigateToListEmp(){
-        val intent = Intent(this, ListEmpActivity::class.java)
+    private fun navigateToReport() {
+        val intent = Intent(this, ReportActivity::class.java)
         startActivity(intent)
-    }*/
+    }
+
+    private fun navigateToListEmpl(){
+        val intent = Intent( this, ListEmpActivity::class.java)
+        startActivity(intent)
+    }
 
     private fun initComponents(){
         viewStart = findViewById(R.id.startPtivilege)
@@ -74,7 +101,7 @@ class HomePrivilegeActivity : AppCompatActivity() {
         val colorReference = if(isSelectedComponet){
             R.color.title_text
         }else{
-            R.color.verde_btn_lgn
+            R.color.colorPrimaryCoppelAzul2
         }
         return ContextCompat.getColor(this, colorReference)
     }
