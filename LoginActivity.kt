@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import android.text.method.PasswordTransformationMethod
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -13,41 +12,41 @@ import android.widget.Button
 import com.almadevs.androidcurso.asistenciaapp.HomeActivity
 import androidx.appcompat.widget.AppCompatEditText
 import android.view.MotionEvent
-import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import com.almadevs.androidcurso.utils.Validator
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.privacysandbox.tools.core.model.Method
 import com.almadevs.androidcurso.asistenciaapp.HomePrivilegeActivity
 import com.almadevs.androidcurso.databinding.ActivityLoginBinding
+import com.android.volley.AuthFailureError
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.DelicateCoroutinesApi
+import com.android.volley.Response
+import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var ediTextUsuario: EditText
+    private lateinit var editTextPassword: EditText
+    private lateinit var buttonEntrar: Button
+
+    @OptIn(DelicateCoroutinesApi::class)
     @SuppressLint("ClickableViewAccessibility", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val buttonEntrar = findViewById<Button>(R.id.buttonEntrar)
-        buttonEntrar.setOnClickListener {
-            val usuario = findViewById<EditText>(R.id.ediTextUsuario).text.toString()
-            val contrasena = findViewById<EditText>(R.id.editTextPassword).text.toString()
+        ediTextUsuario = findViewById(R.id.ediTextUsuario)
+        editTextPassword = findViewById(R.id.editTextPassword)
+        buttonEntrar = findViewById(R.id.buttonEntrar)
 
-            if (validateLogin(usuario, contrasena)) {
-                val userType = getUserType(usuario)
-                if (userType == "Usuario Privilegiado") {
-                    navigateToHomePrivilige()
-                } else if (userType == "Usuario Normal") {
-                    navigateToHome()
-                } else if(!Validator.isNumeroEmpleado(usuario)){
-                    snackBarMessage(R.string.enter_employee)
-                    binding.ediTextUsuario.requestFocus() // Mostrar Snackbar cuando el inicio de sesión no es válido
-                }else if(!Validator.validatePasswordLength(contrasena)){
-                    snackBarMessage(R.string.enter_password)
-                    binding.editTextPassword.requestFocus() // Mostrar Snackbar cuando el inicio de sesión no es válido
-                }
-            }
+        buttonEntrar.setOnClickListener {
+            validarUsuario("http://192.168.1.81/asistenciapp_mysql/validar_usuario.php")
         }
 
         val editTextPassword: AppCompatEditText = findViewById(R.id.editTextPassword)
@@ -65,42 +64,42 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    //funcion de prueba previa a base de datos, sustituir al crear la base de datos
-    private fun getUserType(usuario: String): String {
-        return when (usuario) {
-            "97250015" -> "Usuario Privilegiado"
-            "90013743" -> "Usuario Normal"
-            else -> "Desconocido"
+    private fun validarUsuario(url: String) {
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, url,
+            Response.Listener<String> { response ->
+                if (!response.isEmpty()) {
+                val jsonObject = JSONObject(response)
+                val tipoUsuario = jsonObject.getInt("tipo_usuario")
+                    // Obtener el nombre de usuario del JSON de la respuesta
+                    val nombre_usuario = jsonObject.getString("nombre_usuario")
+                val intent = if (tipoUsuario == 0) {
+                    Intent(applicationContext, HomePrivilegeActivity::class.java)
+                } else {
+                    Intent(applicationContext, HomeActivity::class.java)
+                }
+                    // Pasa el nombre de usuario a la siguiente actividad
+                    intent.putExtra("nombre_usuario", nombre_usuario)
+                    startActivity(intent)
+            } else {
+                    snackBarMessage("  Verifica tu número de empleado o contraseña e intenta nuevamente")
+            }
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this@LoginActivity, error.toString(), Toast.LENGTH_SHORT).show()
+            }) {
+            @Throws(AuthFailureError::class)
+            override fun getParams(): Map<String, String> {
+                val parametros = HashMap<String, String>()
+                parametros["usuario"] = ediTextUsuario.text.toString()
+                parametros["password"] = editTextPassword.text.toString()
+                return parametros
+            }
         }
+        val requestQueue: RequestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(stringRequest)
     }
 
-    //funcion de prueba previa a base de datos, sustituir al crear la base de datos
-    private fun validateLogin(usuario: String, contrasena: String): Boolean {
-        // Información predefinida de usuarios
-        val usuarios = mapOf(
-            "97250015" to "Am172902",
-            "90013743" to "Alma1234"
-        )
-        // Verificar si el usuario existe y la contraseña coincide
-        val loginValido = usuarios.containsKey(usuario) && usuarios[usuario] == contrasena
-
-        // Mostrar un Snackbar si el inicio de sesión no es válido
-        if (!loginValido) {
-            snackBarMessage("Verifica tu número de empleado o contraseña e intenta nuevamente")
-        }
-
-        return loginValido
-    }
-
-    private fun navigateToHomePrivilige() {
-        val intent = Intent(this, HomePrivilegeActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun togglePasswordVisibility(editText: EditText) {
         // Cambia dinámicamente el tipo de entrada del EditText entre textPassword y text
